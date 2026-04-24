@@ -6,30 +6,34 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		86DE2D022F9A7323002BC5DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2CF52F9A7323002BC5DA /* AppDelegate.m */; };
+		86DE2D032F9A7323002BC5DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2CFA2F9A7323002BC5DA /* main.m */; };
+		86DE2D042F9A7323002BC5DA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2CFE2F9A7323002BC5DA /* SceneDelegate.m */; };
+		86DE2D052F9A7323002BC5DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2D002F9A7323002BC5DA /* ViewController.m */; };
+		86DE2D062F9A7323002BC5DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86DE2CF62F9A7323002BC5DA /* Assets.xcassets */; };
+		86DE2D082F9A7323002BC5DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DE2CF92F9A7323002BC5DA /* LaunchScreen.storyboard */; };
+		86DE2D092F9A7323002BC5DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DE2CFC2F9A7323002BC5DA /* Main.storyboard */; };
+		86DE2D312F9A7EAC002BC5DA /* SCPermissionCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2D302F9A7EAC002BC5DA /* SCPermissionCenter.m */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		86DE2CD72F9A731A002BC5DA /* Next Permission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Next Permission.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DE2CF42F9A7323002BC5DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		86DE2CF52F9A7323002BC5DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		86DE2CF62F9A7323002BC5DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		86DE2CF72F9A7323002BC5DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86DE2CF82F9A7323002BC5DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		86DE2CFA2F9A7323002BC5DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		86DE2CFB2F9A7323002BC5DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86DE2CFD2F9A7323002BC5DA /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		86DE2CFE2F9A7323002BC5DA /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		86DE2CFF2F9A7323002BC5DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		86DE2D002F9A7323002BC5DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		86DE2D2E2F9A7E24002BC5DA /* SCPermissionTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPermissionTypes.h; sourceTree = "<group>"; };
+		86DE2D2F2F9A7E24002BC5DA /* SCPermissionCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPermissionCenter.h; sourceTree = "<group>"; };
+		86DE2D302F9A7EAC002BC5DA /* SCPermissionCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPermissionCenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		86DE2CEE2F9A731A002BC5DA /* Exceptions for "Next Permission" folder in "Next Permission" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 86DE2CD62F9A731A002BC5DA /* Next Permission */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		86DE2CD92F9A731A002BC5DA /* Next Permission */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				86DE2CEE2F9A731A002BC5DA /* Exceptions for "Next Permission" folder in "Next Permission" target */,
-			);
-			path = "Next Permission";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		86DE2CD42F9A731A002BC5DA /* Frameworks */ = {
@@ -45,7 +49,7 @@
 		86DE2CCE2F9A7319002BC5DA = {
 			isa = PBXGroup;
 			children = (
-				86DE2CD92F9A731A002BC5DA /* Next Permission */,
+				86DE2D012F9A7323002BC5DA /* Next Permission */,
 				86DE2CD82F9A731A002BC5DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +60,35 @@
 				86DE2CD72F9A731A002BC5DA /* Next Permission.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		86DE2D012F9A7323002BC5DA /* Next Permission */ = {
+			isa = PBXGroup;
+			children = (
+				86DE2CF42F9A7323002BC5DA /* AppDelegate.h */,
+				86DE2CF52F9A7323002BC5DA /* AppDelegate.m */,
+				86DE2CF62F9A7323002BC5DA /* Assets.xcassets */,
+				86DE2CF72F9A7323002BC5DA /* Info.plist */,
+				86DE2CF92F9A7323002BC5DA /* LaunchScreen.storyboard */,
+				86DE2CFA2F9A7323002BC5DA /* main.m */,
+				86DE2CFC2F9A7323002BC5DA /* Main.storyboard */,
+				86DE2CFD2F9A7323002BC5DA /* SceneDelegate.h */,
+				86DE2CFE2F9A7323002BC5DA /* SceneDelegate.m */,
+				86DE2CFF2F9A7323002BC5DA /* ViewController.h */,
+				86DE2D002F9A7323002BC5DA /* ViewController.m */,
+				86DE2D0A2F9A73FE002BC5DA /* Permissions */,
+			);
+			path = "Next Permission";
+			sourceTree = "<group>";
+		};
+		86DE2D0A2F9A73FE002BC5DA /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				86DE2D2E2F9A7E24002BC5DA /* SCPermissionTypes.h */,
+				86DE2D2F2F9A7E24002BC5DA /* SCPermissionCenter.h */,
+				86DE2D302F9A7EAC002BC5DA /* SCPermissionCenter.m */,
+			);
+			path = Permissions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +105,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				86DE2CD92F9A731A002BC5DA /* Next Permission */,
 			);
 			name = "Next Permission";
 			packageProductDependencies = (
@@ -121,6 +151,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86DE2D062F9A7323002BC5DA /* Assets.xcassets in Resources */,
+				86DE2D082F9A7323002BC5DA /* LaunchScreen.storyboard in Resources */,
+				86DE2D092F9A7323002BC5DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,10 +164,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86DE2D312F9A7EAC002BC5DA /* SCPermissionCenter.m in Sources */,
+				86DE2D022F9A7323002BC5DA /* AppDelegate.m in Sources */,
+				86DE2D032F9A7323002BC5DA /* main.m in Sources */,
+				86DE2D042F9A7323002BC5DA /* SceneDelegate.m in Sources */,
+				86DE2D052F9A7323002BC5DA /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		86DE2CF92F9A7323002BC5DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86DE2CF82F9A7323002BC5DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		86DE2CFC2F9A7323002BC5DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86DE2CFB2F9A7323002BC5DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		86DE2CF02F9A731A002BC5DA /* Debug */ = {

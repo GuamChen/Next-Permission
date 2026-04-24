@@ -2,6 +2,33 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>用于扫描和连接运动相机蓝牙设备。</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>用于扫描和连接运动相机蓝牙设备。</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_nextpermission._tcp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>用于扫描相机二维码和控制拍摄。</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>用于发现并连接同一局域网内的运动相机设备。</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>用于蓝牙和 Wi-Fi 扫描，以发现附近运动相机。</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>用于蓝牙和 Wi-Fi 扫描，以发现附近运动相机。</string>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict>
+		<key>CameraConnectionAccuracy</key>
+		<string>用于更准确地发现附近运动相机和网络环境。</string>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>用于蓝牙和 Wi-Fi 扫描，以发现附近运动相机。</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>用于保存运动相机拍摄的照片和视频。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>用于读取和导入运动相机素材。</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
