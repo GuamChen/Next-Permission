@@ -32,6 +32,8 @@ NSString *NSStringFromSCPermissionType(SCPermissionType type) {
         return @"bluetooth";
     case SCPermissionTypeLocalNetwork:
         return @"localNetwork";
+    case SCPermissionTypeMicrophone:
+        return @"microphone";
     }
     return @"unknown";
 }
@@ -243,6 +245,28 @@ NSNotificationName const SCNetworkPathCapabilityDidChangeNotification =
 }
 @end
 
+@interface SCMicrophonePermissionProvider : SCBasePermissionProvider
+@end
+
+@implementation SCMicrophonePermissionProvider
+- (SCPermissionState)currentState {
+    AVAuthorizationStatus status =
+        [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+    switch (status) {
+    case AVAuthorizationStatusNotDetermined: return SCPermissionStateNotDetermined;
+    case AVAuthorizationStatusRestricted: return SCPermissionStateRestricted;
+    case AVAuthorizationStatusDenied: return SCPermissionStateDenied;
+    case AVAuthorizationStatusAuthorized: return SCPermissionStateAuthorized;
+    }
+    return SCPermissionStateUnknown;
+}
+- (void)requestWithCompletion:(void (^)(SCPermissionState, NSError *_Nullable))completion {
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+        dispatch_async(dispatch_get_main_queue(), ^{ if (completion) completion(granted ? SCPermissionStateAuthorized : self.currentState, nil); });
+    }];
+}
+@end
+
 #pragma mark-- 定位权限
 @interface SCLocationPermissionProvider
     : SCBasePermissionProvider <CLLocationManagerDelegate>
@@ -278,12 +302,7 @@ NSNotificationName const SCNetworkPathCapabilityDidChangeNotification =
         return SCPermissionStateUnsupported;
     }
 
-    CLAuthorizationStatus status;
-    if (@available(iOS 14.0, *)) {
-        status = self.locationManager.authorizationStatus;
-    } else {
-        status = [CLLocationManager authorizationStatus];
-    }
+    CLAuthorizationStatus status = self.locationManager.authorizationStatus;
     if (self.type == SCPermissionTypeLocationAlways &&
         status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         return SCPermissionStateLimited;
@@ -358,11 +377,6 @@ NSNotificationName const SCNetworkPathCapabilityDidChangeNotification =
 
 - (void)locationManagerDidChangeAuthorization:(CLLocationManager *)manager
     API_AVAILABLE(ios(14.0)) {
-    [self finishIfNeeded];
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-    didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     [self finishIfNeeded];
 }
 
@@ -573,7 +587,7 @@ NSNotificationName const SCNetworkPathCapabilityDidChangeNotification =
                           }];
       strongSelf.lastError = timeoutError;
       strongSelf.lastDebugMessage = @"timedOutWaitingForPromptResult";
-      [strongSelf cancelRequestKeepingState:SCPermissionStateDenied
+      [strongSelf cancelRequestKeepingState:SCPermissionStateNotDetermined
                                       error:timeoutError];
     });
     dispatch_resume(self.timeoutSource);
@@ -953,6 +967,9 @@ static NSString *const SCFileAccessBookmarkDefaultsKey =
     providers[@(SCPermissionTypeCamera)] =
         [self providerOfClass:SCCameraPermissionProvider.class
                          type:SCPermissionTypeCamera];
+    providers[@(SCPermissionTypeMicrophone)] =
+        [self providerOfClass:SCMicrophonePermissionProvider.class
+                         type:SCPermissionTypeMicrophone];
     providers[@(SCPermissionTypeLocationWhenInUse)] =
         [self providerOfClass:SCLocationPermissionProvider.class
                          type:SCPermissionTypeLocationWhenInUse];

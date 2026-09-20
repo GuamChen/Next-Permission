@@ -15,6 +15,11 @@
 		86DE2D082F9A7323002BC5DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DE2CF92F9A7323002BC5DA /* LaunchScreen.storyboard */; };
 		86DE2D092F9A7323002BC5DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DE2CFC2F9A7323002BC5DA /* Main.storyboard */; };
 		86DE2D312F9A7EAC002BC5DA /* SCPermissionCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2D302F9A7EAC002BC5DA /* SCPermissionCenter.m */; };
+		C0A100010000000000000001 /* SCPermissionCore.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A100020000000000000002 /* SCPermissionCore.m */; };
+		C0A100100000000000000010 /* SCPermissionCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A100120000000000000012 /* SCPermissionCoreTests.m */; };
+		C0A100110000000000000011 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A100140000000000000014 /* XCTest.framework */; };
+		C0A100240000000000000024 /* SCPermissionCenter.m in Tests */ = {isa = PBXBuildFile; fileRef = 86DE2D302F9A7EAC002BC5DA /* SCPermissionCenter.m */; };
+		C0A100250000000000000025 /* SCPermissionCore.m in Tests */ = {isa = PBXBuildFile; fileRef = C0A100020000000000000002 /* SCPermissionCore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,11 @@
 		86DE2D2E2F9A7E24002BC5DA /* SCPermissionTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPermissionTypes.h; sourceTree = "<group>"; };
 		86DE2D2F2F9A7E24002BC5DA /* SCPermissionCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPermissionCenter.h; sourceTree = "<group>"; };
 		86DE2D302F9A7EAC002BC5DA /* SCPermissionCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPermissionCenter.m; sourceTree = "<group>"; };
+		C0A100020000000000000002 /* SCPermissionCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPermissionCore.m; sourceTree = "<group>"; };
+		C0A100030000000000000003 /* SCPermissionCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPermissionCore.h; sourceTree = "<group>"; };
+		C0A100120000000000000012 /* SCPermissionCoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPermissionCoreTests.m; sourceTree = "<group>"; };
+		C0A100130000000000000013 /* Next PermissionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Next PermissionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0A100140000000000000014 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0A100160000000000000016 /* Frameworks */ = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = ( C0A100110000000000000011 /* XCTest.framework in Frameworks */, ); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -50,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				86DE2D012F9A7323002BC5DA /* Next Permission */,
+				C0A100150000000000000015 /* Next PermissionTests */,
 				86DE2CD82F9A731A002BC5DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,8 +70,17 @@
 			isa = PBXGroup;
 			children = (
 				86DE2CD72F9A731A002BC5DA /* Next Permission.app */,
+				C0A100130000000000000013 /* Next PermissionTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C0A100150000000000000015 /* Next PermissionTests */ = {
+			isa = PBXGroup;
+			children = (
+				C0A100120000000000000012 /* SCPermissionCoreTests.m */,
+			);
+			path = "Next PermissionTests";
 			sourceTree = "<group>";
 		};
 		86DE2D012F9A7323002BC5DA /* Next Permission */ = {
@@ -87,6 +108,8 @@
 				86DE2D2E2F9A7E24002BC5DA /* SCPermissionTypes.h */,
 				86DE2D2F2F9A7E24002BC5DA /* SCPermissionCenter.h */,
 				86DE2D302F9A7EAC002BC5DA /* SCPermissionCenter.m */,
+				C0A100030000000000000003 /* SCPermissionCore.h */,
+				C0A100020000000000000002 /* SCPermissionCore.m */,
 			);
 			path = Permissions;
 			sourceTree = "<group>";
@@ -113,6 +136,7 @@
 			productReference = 86DE2CD72F9A731A002BC5DA /* Next Permission.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C0A100180000000000000018 /* Next PermissionTests */ = { isa = PBXNativeTarget; buildConfigurationList = C0A100190000000000000019 /* Build configuration list for PBXNativeTarget \"Next PermissionTests\" */; buildPhases = ( C0A100170000000000000017 /* Sources */, C0A100160000000000000016 /* Frameworks */, ); buildRules = (); dependencies = (); name = "Next PermissionTests"; productName = "Next PermissionTests"; productReference = C0A100130000000000000013 /* Next PermissionTests.xctest */; productType = "com.apple.product-type.bundle.unit-test"; };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -142,6 +166,7 @@
 			projectRoot = "";
 			targets = (
 				86DE2CD62F9A731A002BC5DA /* Next Permission */,
+				C0A100180000000000000018 /* Next PermissionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -165,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DE2D312F9A7EAC002BC5DA /* SCPermissionCenter.m in Sources */,
+				C0A100010000000000000001 /* SCPermissionCore.m in Sources */,
 				86DE2D022F9A7323002BC5DA /* AppDelegate.m in Sources */,
 				86DE2D032F9A7323002BC5DA /* main.m in Sources */,
 				86DE2D042F9A7323002BC5DA /* SceneDelegate.m in Sources */,
@@ -172,6 +198,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0A100170000000000000017 /* Sources */ = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = ( C0A100100000000000000010 /* SCPermissionCoreTests.m in Sources */, C0A100240000000000000024 /* SCPermissionCenter.m in Tests */, C0A100250000000000000025 /* SCPermissionCore.m in Tests */, ); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -194,6 +221,8 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C0A100200000000000000020 /* Debug */ = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_OBJC_ARC = YES; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 26.4; PRODUCT_BUNDLE_IDENTIFIER = "com.lgc.Next-PermissionTests"; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; TEST_HOST = ""; }; name = Debug; };
+		C0A100210000000000000021 /* Release */ = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_OBJC_ARC = YES; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 26.4; PRODUCT_BUNDLE_IDENTIFIER = "com.lgc.Next-PermissionTests"; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; TEST_HOST = ""; }; name = Release; };
 		86DE2CF02F9A731A002BC5DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -389,6 +418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C0A100190000000000000019 /* Build configuration list for PBXNativeTarget "Next PermissionTests" */ = { isa = XCConfigurationList; buildConfigurations = ( C0A100200000000000000020 /* Debug */, C0A100210000000000000021 /* Release */, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
 /* End XCConfigurationList section */
 	};
 	rootObject = 86DE2CCF2F9A7319002BC5DA /* Project object */;

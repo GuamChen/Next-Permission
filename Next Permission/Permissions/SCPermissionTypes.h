@@ -10,7 +10,8 @@ typedef NS_ENUM(NSInteger, SCPermissionType) {
     SCPermissionTypeLocationAlways,
     SCPermissionTypeLocationFullAccuracy,
     SCPermissionTypeBluetooth,
-    SCPermissionTypeLocalNetwork
+    SCPermissionTypeLocalNetwork,
+    SCPermissionTypeMicrophone
 };
 
 typedef NS_ENUM(NSInteger, SCPermissionState) {

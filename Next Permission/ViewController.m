@@ -7,6 +7,7 @@
 
 #import "ViewController.h"
 #import "Permissions/SCPermissionCenter.h"
+#import "Permissions/SCPermissionCore.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UITextView *textView;
@@ -47,6 +48,7 @@
         @{@"title": @"请求相册读取", @"tag": @(SCPermissionTypePhotoRead)},
         @{@"title": @"请求相册保存", @"tag": @(SCPermissionTypePhotoAdd)},
         @{@"title": @"请求定位前台", @"tag": @(SCPermissionTypeLocationWhenInUse)},
+        @{@"title": @"请求麦克风", @"tag": @(SCPermissionTypeMicrophone)},
         @{@"title": @"请求蓝牙", @"tag": @(SCPermissionTypeBluetooth)},
         @{@"title": @"请求本地网络", @"tag": @(SCPermissionTypeLocalNetwork)}
     ];
@@ -92,9 +94,9 @@
 
 - (void)handlePermissionButton:(UIButton *)sender {
     SCPermissionType type = (SCPermissionType)sender.tag;
-    [SCPermissionCenter.sharedCenter requestPermission:type completion:^(SCPermissionState state) {
+    [[SCPermissionCore sharedCore] request:[SCPermissionRequest requestWithType:type] completion:^(SCPermissionResult *result) {
         [self refreshSummary];
-        if (type == SCPermissionTypeLocalNetwork && state != SCPermissionStateAuthorized) {
+        if (type == SCPermissionTypeLocalNetwork && result.state != SCPermissionStateAuthorized) {
             [SCPermissionCenter.sharedCenter openInAppPermissionGuideForType:type from:self];
         }
     }];
@@ -118,6 +120,7 @@
         @(SCPermissionTypePhotoRead),
         @(SCPermissionTypePhotoAdd),
         @(SCPermissionTypeLocationWhenInUse),
+        @(SCPermissionTypeMicrophone),
         @(SCPermissionTypeBluetooth),
         @(SCPermissionTypeLocalNetwork)
     ];
@@ -128,6 +131,14 @@
         SCPermissionState state = [center stateForType:type];
         [lines addObject:[NSString stringWithFormat:@"%@: %@", NSStringFromSCPermissionType(type), NSStringFromSCPermissionState(state)]];
     }
+
+    SCPermissionResult *location = [[SCPermissionCore sharedCore]
+        currentResultForRequest:[SCPermissionRequest locationWhenInUseRequest]];
+    [lines addObject:[NSString stringWithFormat:@"location scope: %@", NSStringFromSCLocationAuthorizationScope(location.locationScope)]];
+    [lines addObject:[NSString stringWithFormat:@"location accuracy: %@", NSStringFromSCLocationAccuracy(location.locationAccuracy)]];
+    SCPermissionConfigurationReport *report = [[SCPermissionCore sharedCore]
+        configurationReportForRequests:@[[SCPermissionRequest locationWhenInUseRequest], [SCPermissionRequest microphoneRequest]]];
+    [lines addObject:[NSString stringWithFormat:@"configuration: %@", report.isValid ? @"valid" : [report.missingInfoPlistKeys componentsJoinedByString:@", "]]];
 
     [lines addObject:@""];
     [lines addObject:@"== Capability States =="];

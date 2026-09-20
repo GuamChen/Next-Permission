@@ -14,6 +14,8 @@
 	<string>用于扫描相机二维码和控制拍摄。</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>用于发现并连接同一局域网内的运动相机设备。</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>用于录制运动相机视频的音频和语音控制。</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>用于蓝牙和 Wi-Fi 扫描，以发现附近运动相机。</string>
 	<key>NSLocationAlwaysUsageDescription</key>
