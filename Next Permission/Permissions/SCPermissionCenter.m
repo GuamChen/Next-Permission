@@ -253,17 +253,29 @@ NSNotificationName const SCNetworkPathCapabilityDidChangeNotification =
     AVAuthorizationStatus status =
         [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
     switch (status) {
-    case AVAuthorizationStatusNotDetermined: return SCPermissionStateNotDetermined;
-    case AVAuthorizationStatusRestricted: return SCPermissionStateRestricted;
-    case AVAuthorizationStatusDenied: return SCPermissionStateDenied;
-    case AVAuthorizationStatusAuthorized: return SCPermissionStateAuthorized;
+    case AVAuthorizationStatusNotDetermined:
+        return SCPermissionStateNotDetermined;
+    case AVAuthorizationStatusRestricted:
+        return SCPermissionStateRestricted;
+    case AVAuthorizationStatusDenied:
+        return SCPermissionStateDenied;
+    case AVAuthorizationStatusAuthorized:
+        return SCPermissionStateAuthorized;
     }
     return SCPermissionStateUnknown;
 }
-- (void)requestWithCompletion:(void (^)(SCPermissionState, NSError *_Nullable))completion {
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
-        dispatch_async(dispatch_get_main_queue(), ^{ if (completion) completion(granted ? SCPermissionStateAuthorized : self.currentState, nil); });
-    }];
+- (void)requestWithCompletion:(void (^)(SCPermissionState,
+                                        NSError *_Nullable))completion {
+    [AVCaptureDevice
+        requestAccessForMediaType:AVMediaTypeAudio
+                completionHandler:^(BOOL granted) {
+                  dispatch_async(dispatch_get_main_queue(), ^{
+                    if (completion)
+                        completion(granted ? SCPermissionStateAuthorized
+                                           : self.currentState,
+                                   nil);
+                  });
+                }];
 }
 @end
 
@@ -412,6 +424,15 @@ NSNotificationName const SCNetworkPathCapabilityDidChangeNotification =
                        queue:nil
                      options:@{CBCentralManagerOptionShowPowerAlertKey : @NO}];
     }
+    /**
+     CBCentralManagerOptionShowPowerAlertKey : @NO 表示：
+     当蓝牙处于关闭状态时，不要由 CoreBluetooth 自动弹出系统的“打开蓝牙”提示框。
+
+     如果写成： CBCentralManagerOptionShowPowerAlertKey : @YES
+
+     当 App 使用蓝牙而系统蓝牙关闭时，系统可能弹出类似：
+     “xxx 想要使用蓝牙，请打开蓝牙”
+     */
     return self;
 }
 
