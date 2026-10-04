@@ -1,0 +1,24 @@
+name: iOS library checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['*']
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the Swift Package for iOS Simulator
+        run: |
+          SDK_PATH="$(xcrun --sdk iphonesimulator --show-sdk-path)"
+          swift build --build-tests --sdk "$SDK_PATH" --triple arm64-apple-ios15.0-simulator
+      - name: Run the example application's XCTest suite
+        run: |
+          xcodebuild test \
+            -project 'Next Permission.xcodeproj' \
+            -scheme 'Next PermissionTests' \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+            CODE_SIGNING_ALLOWED=NO

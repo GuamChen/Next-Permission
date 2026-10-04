@@ -1,6 +1,22 @@
 # Next Permission
 
-可直接复制到 Objective-C iOS 项目的权限工具模块，最低支持 iOS 14。
+可直接复制到 Objective-C iOS 项目的权限工具模块，最低支持 iOS 15。
+
+## Swift Package Manager 接入
+
+在 Xcode 中选择 **File → Add Package Dependencies…**，输入仓库地址并选择一个发布 tag（例如 `1.0.0`），然后把 `SCPermissionKit` 添加到 App target。
+
+```swift
+.package(url: "https://github.com/GuamChen/Next-Permission.git", from: "1.0.0")
+```
+
+库不携带 App 的 `Info.plist`。请由宿主 App 按本文的“Info.plist 与预检”清单配置用途说明；发布前可调用 `configurationReportForRequests:` 检查。
+
+Objective-C 使用方通过模块导入：
+
+```objc
+@import SCPermissionKit;
+```
 
 ## 模块边界
 
